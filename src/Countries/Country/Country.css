@@ -1,0 +1,11 @@
+.box {
+    border: .2rem solid black;
+    margin-top: 1rem;
+    padding: .1rem;
+    text-align: center;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
