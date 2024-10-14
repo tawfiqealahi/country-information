@@ -6,18 +6,18 @@ const Country = ({data}) => {
 
     const[visited,setVisited]=useState(false);
     const handleVisited=()=>{
-        setVisited(true);
+        setVisited(!visited);
     }
 
     return (
-        <div className="box">
-            <h2>Country Name: {name?.common}</h2>
+        <div className={`box ${visited&& "visitedCountry"}`}>
+            <h2 style={{color: visited? 'purple': 'black'}} >Country Name: {name?.common}</h2>
             <h2>Country Code: {cca3}</h2>
             <h2>Area: {area}</h2>
             <h2>Population: {population} </h2>
-            <button onClick={handleVisited} >visited</button>
+            <button className='button' onClick={handleVisited} >{visited?'Visited':'Going'}</button>
             {
-                visited ? 'i have aleeady visited' : 'i want to check out this place'
+                visited ? ' i have aleeady visited' : 'i want to check out this place'
             } 
             <img src={flags.png} alt="country image"  />
 
