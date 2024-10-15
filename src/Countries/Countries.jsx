@@ -5,6 +5,7 @@ import './Countries.css'
 const Countries = () => {
     const[info,setInfo]=useState([])
     const[visitedCountry,setVisitedCountry]=useState([]);
+    const[visitedFlag,setVisitedFlag]=useState([]);
 
 
     useEffect(()=>{
@@ -14,16 +15,35 @@ const Countries = () => {
     },[]);
 
     const handleVisitedCountry=(country)=>{
-        console.log('add this to your visited country list')
-        console.log(country)
+        const newVisitedCountries=[...visitedCountry,country];
+        setVisitedCountry(newVisitedCountries);
+    }
+
+    const handleFlag=(flag)=>{
+        const newVisitedFlag = [...visitedFlag,flag]
+        setVisitedFlag(newVisitedFlag)
     }
     return (
         <div>
             <h1 className="heading">Worlds {info.length}  Country Information</h1>
-            <h3>Visited Country: </h3>
+            <h3>Visited Country: {visitedCountry.length} </h3>
+            {
+                visitedCountry.map(country=><li key={country.cca3}>{country.name.common}</li>)
+            }
+
+           { /* display country flag*/}
+           <div>
+            <div className='flag-container'>
+                {visitedFlag.map(flag=> <img src={flag} alt="flag"  />)}
+            </div>
+           </div>
+
             <div className="content">
                {
-                info.map(country=> <Country key={country.cca3} data={country} handleVisitedCountry={handleVisitedCountry} > </Country>)
+                info.map(country=> <Country key={country.cca3} data={country} 
+                handleVisitedCountry={handleVisitedCountry} 
+                handleFlag= {handleFlag}
+                 > </Country>)
                }
             </div>
         </div>
