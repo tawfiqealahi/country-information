@@ -8,10 +8,11 @@
     display: grid;
     grid-template-columns:repeat(3,1fr) ;
     gap: 1rem;
-    
+
 }
 .flag-container img{
     width: 5rem;
     margin-inline: .2rem;
     border: .15rem solid purple;
+    
 }
