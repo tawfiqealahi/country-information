@@ -20,7 +20,7 @@ const Country = ({data, handleVisitedCountry, handleFlag}) => {
            <button onClick={()=>{handleFlag(data.flags.png)}}>add Visited Flag</button> <br />
             <button className='button' onClick={handleVisited} >{visited?'Visited':'Going'}</button> 
             {
-                visited ? ' i have aleeady visited' : 'i want to check out this place'
+                visited ? ' i have already visited' : 'i want to check out this place'
             } 
             <img src={flags.png} alt="country image"  />
 
